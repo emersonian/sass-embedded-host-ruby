@@ -91,7 +91,7 @@ module FileUtils
     case scheme
     when nil, 'file'
       if Gem.win_platform? && source_path[0].chr == '/' && source_path[1].chr =~ /[a-z]/i && source_path[2].chr == ':'
-        source_path = source_path[1..]
+        source_path.shift
       end
       cp source_path, dest_path
     else
